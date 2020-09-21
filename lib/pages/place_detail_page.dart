@@ -7,47 +7,50 @@ class PlaceDetailPage extends StatefulWidget{
   _PlaceDetailPageState createState() => _PlaceDetailPageState();
 }
 
-class _PlaceDetailPageState extends State<PlaceDetailPage> with TickerProviderStateMixin{
-
+class _PlaceDetailPageState extends State<PlaceDetailPage>
+    with TickerProviderStateMixin {
   AnimationController controller;
   Animation<double> animation;
 
   List<String> galleries = [];
 
   @override
-  void initState(){
-    controller = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-    animation = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(parent: controller, curve: Curves.easeInToLinear));
+  void initState() {
+    controller =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    animation = Tween<double>(begin: 0, end: 1).animate(
+        CurvedAnimation(parent: controller, curve: Curves.easeInToLinear));
+
     galleries = ["assets/mdy.jpg", "assets/mdy2.jpg"];
+
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     controller.dispose();
     super.dispose();
   }
-  
+
   @override
   Widget build(BuildContext context) {
-    Widget _backicon(){
+    Widget _backicon() {
       return Positioned(
-        child: Container(
-          padding: EdgeInsets.only(top: 24, right: 24),
-          child: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
+          child: Container(
+            padding: EdgeInsets.only(top: 24, right: 24),
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
-            onPressed: (){
-              Navigator.pop(context);
-            },
-          ),
-        )
-      );
+          ));
     }
 
-    Widget _appBar(){
+    Widget _appBar() {
       return Container(
         height: 320,
         child: Stack(
@@ -57,9 +60,8 @@ class _PlaceDetailPageState extends State<PlaceDetailPage> with TickerProviderSt
               width: double.infinity,
               child: ClipRRect(
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(28),
-                  bottomRight: Radius.circular(28)
-                ),
+                    bottomLeft: Radius.circular(28),
+                    bottomRight: Radius.circular(28)),
                 child: Image.asset(
                   'assets/mdy2.jpg',
                   fit: BoxFit.cover,
@@ -72,21 +74,21 @@ class _PlaceDetailPageState extends State<PlaceDetailPage> with TickerProviderSt
               child: Container(
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(13)),
-                  color: AppTheme.lightTheme.backgroundColor,
-                  boxShadow: AppTheme.favoriteShadow
-                ),
+                    borderRadius: BorderRadius.all(Radius.circular(13)),
+                    color: AppTheme.lightTheme.backgroundColor,
+                    boxShadow: AppTheme.favoriteShadow),
                 child: Icon(
                   Icons.favorite,
                   color: Color(0xffFF8D8F),
                 ),
               ).ripple(() {},
-          borderRadius: BorderRadius.all(Radius.circular(13))),
+                  borderRadius: BorderRadius.all(Radius.circular(13))),
             ),
           ],
         ),
       );
     }
+
     Widget _content() {
       return Container(
         padding: AppTheme.hPadding,
@@ -189,7 +191,7 @@ class _PlaceDetailPageState extends State<PlaceDetailPage> with TickerProviderSt
       );
     }
 
-    Widget _body(){
+    Widget _body() {
       return Container(
         height: AppTheme.fullHeight(context) - 70,
         child: SingleChildScrollView(
@@ -203,7 +205,7 @@ class _PlaceDetailPageState extends State<PlaceDetailPage> with TickerProviderSt
       );
     }
 
-    Widget _bottom(){
+    Widget _bottom() {
       return Container(
         width: AppTheme.fullWidth(context),
         color: Color(0xffFF8D8F),
@@ -218,19 +220,21 @@ class _PlaceDetailPageState extends State<PlaceDetailPage> with TickerProviderSt
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Average cost",
-                    style: TextStyle(fontSize: 14, color: Colors.white60),,
+                    "Average Cost",
+                    style: TextStyle(fontSize: 14, color: Colors.white60),
                   ),
                   SizedBox(
                     height: 2,
                   ),
-                  Text(
-                      "350 \$",
-                    style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold))
+                  Text("350 \$",
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold))
                 ],
               ),
               RaisedButton(
-                onPressed: (){},
+                onPressed: () {},
                 child: Text("Book a Tour"),
                 textColor: Color(0xffFF8D8F),
                 color: Colors.white,
