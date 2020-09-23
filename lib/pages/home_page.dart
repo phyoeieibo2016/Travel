@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_flutter/localization/localization_constants.dart';
 import 'package:travel_flutter/models/place.dart';
 import 'package:travel_flutter/themes/theme.dart';
 import 'package:travel_flutter/widgets/category_item.dart';
@@ -79,7 +80,7 @@ class _HomePageState extends State<HomePage>{
       name: 'Mandalay',
     date: '1-2 day',
     distance: "21km"),
-      ),
+      
     Place(
     image: 'assets/bagan.jpg',
     name: 'Bagan',
